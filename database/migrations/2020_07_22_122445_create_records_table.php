@@ -36,7 +36,7 @@ class CreateRecordsTable extends Migration
             $table->json('objective_findings');
             $table->longText('assesment');
             $table->longText('treatment');
-            $table->longText('recommendations');
+            $table->json('recommendations');
             $table->json('immunization_history');
             $table->timestamps();
         });
