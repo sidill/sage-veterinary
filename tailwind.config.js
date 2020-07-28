@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: colors.indigo
+        primary: colors.gray
       },
       fontFamily: {
         'poppins': ['Poppins', 'sans-serif']
@@ -13,7 +13,7 @@ module.exports = {
       customForms: theme => ({
         default: {
           input: {
-            backgroundColor: theme('colors.gray.100')
+            
           }
         }
       })

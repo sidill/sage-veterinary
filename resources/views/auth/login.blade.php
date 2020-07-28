@@ -50,7 +50,7 @@
         </div>
     
         <div>
-            <button type="submit" class="bg-primary-500 hover:bg-primary-600 transition ease-in-out text-white font-semibold py-2 px-5 rounded w-full">
+            <button type="submit" class="bg-primary-800 hover:bg-primary-700 transition ease-in-out text-white font-semibold py-2 px-5 rounded w-full">
                 {{ __('Login') }}
             </button>
         </div>

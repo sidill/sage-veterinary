@@ -12,22 +12,6 @@ class Record extends Model
      * @var array
      */
     protected $fillable = [
-        'client_reference',
-        'client_name',
-        'client_address',
-        'client_phone',
-        'client_email',
-        'patient_reference',
-        'patient_name',
-        'patient_species',
-        'patient_type',
-        'patient_breed',
-        'patient_color',
-        'patient_markings',
-        'patient_microchip',
-        'patient_tattoo',
-        'patient_date_of_birth',
-        'medical_history',
         'physical_examination',
         'subjective_findings',
         'objective_findings',
@@ -44,6 +28,7 @@ class Record extends Model
      */
     protected $casts = [
         'id' => 'integer',
+        'patient_id' => 'integer',
         'medical_history' => 'array',
         'physical_examination' => 'array',
         'subjective_findings' => 'array',

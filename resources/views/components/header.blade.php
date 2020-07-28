@@ -1,27 +1,30 @@
-<div class="bg-white border-t-4 border-primary-500">
+<div class="bg-white">
     <div class="container px-6 mx-auto flex items-center justify-between">
-        <div class="flex space-x-5 text-gray-600">
-            <a class="text-gray-900 py-1 px-1">
+        <div class="flex space-x-5 text-gray-600 text-sm">
+            <a href="{{ url('/') }}" class="flex items-center space-x-3 text-gray-800 py-2 px-1">
                 <img class="w-10 h-10" src="{{ asset('img/logo.png') }}" />
+                <span class="text-base font-bold">Sage Veterinary Services</span>
             </a>
-            <a href="{{ route('home') }}" class="flex items-center py-3 px-1 @if(request()->is('home')) border-b-2 border-primary-500 @endif">
+            @auth
+            <a href="{{ route('home') }}" class="flex items-center py-3 px-1 @if(request()->is('home')) border-b-2 border-primary-700 @endif">
                 @if(request()->is('home'))
-                <svg class="w-5 h-5 mr-2 text-primary-500" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                <svg class="w-5 h-5 mr-2 text-primary-600" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
                 <span class="text-gray-700">Dashboard</span>
                 @else
                 <svg class="w-5 h-5 mr-2 text-gray-500" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
                 <span>Dashboard</span>
                 @endif
             </a>
-            <a href="{{ route('record.index') }}" class="flex items-center py-3 px-1 @if(request()->is('record*')) border-b-2 border-primary-500 @endif">
+            <a href="{{ route('record.index') }}" class="flex items-center py-3 px-1 @if(request()->is('record*')) border-b-2 border-primary-700 @endif">
                 @if(request()->is('record*'))
-                <svg class="w-5 h-5 mr-2 text-primary-500" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path></svg>
+                <svg class="w-5 h-5 mr-2 text-primary-600" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path></svg>
                 <span class="text-gray-700">Records</span>
                 @else
                 <svg class="w-5 h-5 mr-2 text-gray-500" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path></svg>
                 <span>Records</span>
                 @endif
             </a>
+            @endauth
         </div>
         <div>
             @guest
