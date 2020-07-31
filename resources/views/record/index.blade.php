@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('header')
-    <x-sub-header title="Records" model="Record" :route="route('record.create')" />
+    <x-sub-header title="Records" label="New Record" :route="route('record.create')" />
 @endsection
 
 @section('content')

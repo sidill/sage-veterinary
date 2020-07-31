@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Arr;
 
 class Record extends Model
 {
@@ -18,6 +19,8 @@ class Record extends Model
         'assesment',
         'treatment',
         'recommendations',
+        'signature',
+        'date',
         'immunization_history',
     ];
 
@@ -35,4 +38,19 @@ class Record extends Model
         'objective_findings' => 'array',
         'immunization_history' => 'array',
     ];
+
+    public static function create(array $attributes = [])
+    {
+        $client = Client::query()->firstOrCreate([
+            'reference' => $attributes['client']['reference']
+        ], $attributes['client']);
+
+        $patient = $client->patients()->firstOrCreate([
+            'reference' => $attributes['patient']['reference']
+        ], $attributes['patient']);
+
+        return $patient->records()->create(Arr::except($attributes, [
+            'client', 'patient'
+        ]));
+    }
 }

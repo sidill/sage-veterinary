@@ -4,21 +4,17 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class SubHeader extends Component
+class Error extends Component
 {
-    public $title;
-    public $label;
-    public $route;
+    public $message;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($title, $label = null, $route = null)
+    public function __construct(string $message)
     {
-        $this->title = $title;
-        $this->label = $label;
-        $this->route = $route;
+        $this->message = $message;
     }
 
     /**
@@ -28,6 +24,6 @@ class SubHeader extends Component
      */
     public function render()
     {
-        return view('components.sub-header');
+        return view('components.error');
     }
 }

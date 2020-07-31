@@ -15,13 +15,15 @@ class CreateRecordsTable extends Migration
     {
         Schema::create('records', function (Blueprint $table) {
             $table->id();
-            $table->json('physical_examination');
-            $table->json('subjective_findings');
-            $table->json('objective_findings');
-            $table->longText('assesment');
-            $table->longText('treatment');
-            $table->json('recommendations');
-            $table->json('immunization_history');
+            $table->json('physical_examination')->nullable();
+            $table->json('subjective_findings')->nullable();
+            $table->json('objective_findings')->nullable();
+            $table->longText('assesment')->nullable();
+            $table->longText('treatment')->nullable();
+            $table->longText('recommendations')->nullable();
+            $table->json('immunization_history')->nullable();
+            $table->string('signature')->nullable();
+            $table->string('date')->nullable();
             $table->bigInteger('patient_id');
             $table->timestamps();
         });

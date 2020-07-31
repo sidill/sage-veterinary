@@ -35,9 +35,9 @@ class RecordController extends Controller
      */
     public function store(RecordStoreRequest $request)
     {
-        $record = Record::create($request->all());
+        $record = Record::create($request->validated());
 
-        $request->session()->flash('record.id', $record->id);
+        session()->flash('record.id', $record->id);
 
         return redirect()->route('record.index');
     }
