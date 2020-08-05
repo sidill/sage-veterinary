@@ -9,7 +9,7 @@
             <label for="email" class="form-label">{{ __('E-Mail Address') }}</label>
     
             <div>
-                <input id="email" type="email" class="form-input @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                <input id="email" type="email" class="form-input w-full @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
     
                 @error('email')
                     <x-error :message="$message" />
@@ -30,7 +30,7 @@
             </div>
     
             <div>
-                <input id="password" type="password" class="form-input @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                <input id="password" type="password" class="form-input w-full @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
     
                 @error('password')
                     <x-error :message="$message" />

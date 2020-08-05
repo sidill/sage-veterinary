@@ -39,6 +39,11 @@ class Record extends Model
         'immunization_history' => 'array',
     ];
 
+    public function patient()
+    {
+        return $this->belongsTo(Patient::class);
+    }
+
     public static function create(array $attributes = [])
     {
         $client = Client::query()->firstOrCreate([
@@ -50,7 +55,7 @@ class Record extends Model
         ], $attributes['patient']);
 
         return $patient->records()->create(Arr::except($attributes, [
-            'client', 'patient'
+            'client', 'patient', 'action'
         ]));
     }
 }

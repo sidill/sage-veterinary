@@ -35,11 +35,15 @@ class RecordController extends Controller
      */
     public function store(RecordStoreRequest $request)
     {
-        $record = Record::create($request->validated());
+        $record = Record::create($validated = $request->validated());
 
         session()->flash('record.id', $record->id);
 
-        return redirect()->route('record.index');
+        if ($validated['action'] == 'save-and-edit') {
+            return redirect()->route('record.edit', $record->id);
+        }
+
+        return redirect()->route('record.show', $record->id);
     }
 
     /**
@@ -69,11 +73,15 @@ class RecordController extends Controller
      */
     public function update(RecordUpdateRequest $request, Record $record)
     {
-        $record->update($request->validated());
+        $record->update($validated = $request->validated());
 
         $request->session()->flash('record.id', $record->id);
 
-        return redirect()->route('record.index');
+        if ($validated['action'] == 'save-and-edit') {
+            return redirect()->route('record.edit', $record->id);
+        }
+
+        return redirect()->route('record.show', $record->id);
     }
 
     /**

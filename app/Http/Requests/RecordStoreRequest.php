@@ -39,14 +39,17 @@ class RecordStoreRequest extends FormRequest
             'patient.microchip' => 'nullable|string',
             'patient.tattoo' => 'nullable|string',
             'patient.date_of_birth' => 'nullable|date',
-            'patient.medical_history' => 'required',
-            'physical_examination' => 'required',
-            'subjective_findings' => 'required',
-            'objective_findings' => 'required',
+            'patient.medical_history' => 'nullable|array',
+            'physical_examination' => 'nullable|array',
+            'subjective_findings' => 'nullable|array',
+            'objective_findings' => 'nullable|array',
             'assesment' => 'nullable|string',
             'treatment' => 'nullable|string',
             'recommendations' => 'nullable|string',
             'immunization_history' => 'nullable',
+            'date' => 'nullable|date',
+            'signature' => 'nullable|string',
+            'action' => 'required',
         ];
     }
 }

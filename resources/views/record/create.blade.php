@@ -5,21 +5,15 @@
 @endsection
 
 @section('content')
-
-    @if($errors->any())
-        @foreach ($errors->all() as $error)
-            {{ $error }}
-        @endforeach
-    @endif
     <form action="{{ route('record.store') }}" method="POST">
         @csrf
         <div class="bg-white rounded shadow p-5 space-y-8">
-            <div class="flex">
-                <div class="w-1/3">
+            <div class="flex flex-col lg:flex-row">
+                <div class="w-full mb-8 lg:w-1/3">
                     <h3 class="form-heading">{{ __('Client Information') }}</h3>
                     <h5 class="form-sub-heading">{{ __('This give us detail of the person who brought the pet') }}</h5>
                 </div>
-                <div class="w-2/3 space-y-2">
+                <div class="w-full lg:w-2/3 space-y-2">
                     <div>
                         <label class="form-label" for="client['reference']">Client ID</label>
                         <input class="block form-input @error('client.reference') is-invalid @enderror w-full max-w-xs" id="client['reference']" type="text" name="client[reference]" value="{{ old('client.reference') }}" />
@@ -58,12 +52,12 @@
                 </div>
             </div>
             <div class="border-t"></div>
-            <div class="flex">
-                <div class="w-1/3">
+            <div class="flex flex-col lg:flex-row">
+                <div class="w-full mb-8 lg:w-1/3">
                     <h3 class="form-heading">{{ __('Patient Information') }}</h3>
                     <h5 class="form-sub-heading">{{ __('This give us detail of the pet which was brought') }}</h5>
                 </div>
-                <div class="w-2/3 space-y-2">
+                <div class="w-full lg:w-2/3 space-y-2">
                     <div>
                         <label class="form-label" for="patient[reference]">Patient ID</label>
                         <input class="block form-input @error('patient.reference') is-invalid @enderror w-full max-w-xs" id="patient[reference]" type="text" name="patient[reference]" value="{{ old('patient.reference') }}" />
@@ -129,7 +123,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="grid grid-cols-2 gap-4 space-y-2">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
                         <div>
                             <label class="form-label" for="patient[breed]">Breed</label>
                             <input class="block form-input @error('patient.breed') is-invalid @enderror w-full max-w-xs" id="patient[breed]" type="text" name="patient[breed]" value="{{ old('patient.breed') }}" />
@@ -176,12 +170,12 @@
                 </div>
             </div>
             <div class="border-t"></div>
-            <div class="flex">
-                <div class="w-1/3">
+            <div class="flex flex-col lg:flex-row">
+                <div class="w-full mb-8 lg:w-1/3">
                     <h3 class="form-heading">{{ __('Medical History') }}</h3>
                     <h5 class="form-sub-heading">{{ __('This you insight into previous occurances') }}</h5>
                 </div>
-                <div class="w-2/3 space-y-2">
+                <div class="w-full lg:w-2/3 space-y-2">
                     <div>
                         <label class="form-label" for="patient[medical_history][previous_veterinarian]">Previous Veterinarian / Clinic</label>
                         <input class="block form-input w-full max-w-md" id="patient[medical_history][previous_veterinarian]" type="text" name="patient[medical_history][previous_veterinarian]" value="{{ old('patient.medical_history.previous_veterinarian') }}" />
@@ -227,15 +221,15 @@
                 </div>
             </div>
             <div class="border-t"></div>
-            <div class="flex">
-                <div class="w-1/3">
+            <div class="flex flex-col lg:flex-row">
+                <div class="w-full mb-8 lg:w-1/3">
                     <h3 class="form-heading">{{ __('Presenting Complaint') }}</h3>
                     <h5 class="form-sub-heading">{{ __('Finding and examinations in details') }}</h5>
                 </div>
-                <div class="w-2/3 space-y-2">
+                <div class="w-full lg:w-2/3 space-y-2">
                     <div>
                         <label class="form-label" for="physical_examination[notes]">Notes</label>
-                    <textarea rows="10" class="block form-input w-full max-w-xl" id="physical_examination[notes]" name="physical_examination[notes]">{{ old('physical_examination.notes') }}</textarea>
+                        <textarea rows="10" class="block form-input w-full max-w-xl" id="physical_examination[notes]" name="physical_examination[notes]">{{ old('physical_examination.notes') }}</textarea>
                     </div>
                     <div>
                         <label class="form-label" for="physical_examination[frequency]">Frequency / Duration</label>
@@ -252,13 +246,13 @@
                 </div>
             </div>
             <div class="border-t"></div>
-            <div class="flex">
-                <div class="w-1/3">
+            <div class="flex flex-col lg:flex-row">
+                <div class="w-full mb-8 lg:w-1/3">
                     <h3 class="form-heading">{{ __('Subjective Findings - History') }}</h3>
                     <h5 class="form-sub-heading">{{ __('Bring out the findings as reported by Client') }}</h5>
                 </div>
-                <div class="w-2/3 space-y-2">
-                    <div class="grid grid-cols-4 gap-4 space-y-2 text-gray-800">
+                <div class="w-full lg:w-2/3 space-y-2">
+                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 text-gray-800">
                         <div>
                             <span class="form-label">Appetite</span>
                             <div class="mt-2">
@@ -404,13 +398,13 @@
                 </div>
             </div>
             <div class="border-t"></div>
-            <div class="flex">
-                <div class="w-1/3">
+            <div class="flex flex-col lg:flex-row">
+                <div class="w-full mb-8 lg:w-1/3">
                     <h3 class="form-heading">{{ __('Objective Findings - History') }}</h3>
                     <h5 class="form-sub-heading">{{ __('Bring out the findings as observed by Veterinarian') }}</h5>
                 </div>
-                <div class="w-2/3 space-y-2">
-                    <div class="grid grid-cols-2 gap-4 space-y-2">
+                <div class="w-full lg:w-2/3 space-y-2">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
                         <div>
                             <label class="form-label" for="objective_findings[temperature]">Temperature</label>
                             <input class="block form-input w-full max-w-xs" id="objective_findings[temperature]" type="text" name="objective_findings[temperature]" value="{{ old('objective_findings.temperature') }}" />
@@ -437,7 +431,7 @@
                         </div>
                     </div>
     
-                    <div class="grid grid-cols-4 gap-4 space-y-2 text-gray-800">
+                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 text-gray-800">
                         <div>
                             <span class="form-label">Eyes</span>
                             <div class="mt-2">
@@ -634,39 +628,39 @@
                 </div>
             </div>
             <div class="border-t"></div>
-            <div class="flex">
-                <div class="w-1/3">
+            <div class="flex flex-col lg:flex-row">
+                <div class="w-full mb-8 lg:w-1/3">
                     <h3 class="form-heading">{{ __('Assesment, Rule Outs, DDX') }}</h3>
                     <h5 class="form-sub-heading">{{ __('What was discovered') }}</h5>
                 </div>
-                <div class="w-2/3">
+                <div class="w-full lg:w-2/3">
                     <label label class="form-label" for="assesment">Assesment</label>
                     <textarea rows="20" class="block form-input w-full max-w-xl" id="assesment" name="assesment">{{ old('assesment') }}</textarea>
                 </div>
             </div>
             <div class="border-t"></div>
-            <div class="flex">
-                <div class="w-1/3">
+            <div class="flex flex-col lg:flex-row">
+                <div class="w-full mb-8 lg:w-1/3">
                     <h3 class="form-heading">{{ __('Plan and Treatment') }}</h3>
                     <h5 class="form-sub-heading">{{ __('What treatment was given out') }}</h5>
                 </div>
-                <div class="w-2/3">
+                <div class="w-full lg:w-2/3">
                     <label label class="form-label" for="treatment">Treatment</label>
                     <textarea rows="20" class="block form-input w-full max-w-xl" id="treatment" name="treatment">{{ old('treatment') }}</textarea>
                 </div>
             </div>
             <div class="border-t"></div>
-            <div class="flex">
-                <div class="w-1/3">
+            <div class="flex flex-col lg:flex-row">
+                <div class="w-full mb-8 lg:w-1/3">
                     <h3 class="form-heading">{{ __('Recommendations / Instructions To Owner') }}</h3>
                     <h5 class="form-sub-heading">{{ __('What was recommended for the client') }}</h5>
                 </div>
-                <div class="w-2/3 space-y-2">
+                <div class="w-full lg:w-2/3 space-y-2">
                     <div>
                         <label label class="form-label" for="recommendations">Recommendations</label>
                         <textarea rows="20" class="block form-input w-full max-w-xl" id="recommendations" name="recommendations">{{ old('recommendations') }}</textarea>
                     </div>
-                    <div class="grid grid-cols-2 gap-4 space-y-2">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
                         <div>
                             <label class="form-label" for="signature">Veterinarian Signature</label>
                             <input class="block form-input w-full max-w-xs" id="signature" type="text" name="signature" value="{{ old('signature') }}" />
@@ -679,14 +673,14 @@
                 </div>
             </div>
             <div class="border-t"></div>
-            <div class="flex">
-                <div class="w-1/3">
+            <div class="flex flex-col lg:flex-row">
+                <div class="w-full mb-8 lg:w-1/3">
                     <h3 class="form-heading">{{ __('Immunization History') }}</h3>
                     <h5 class="form-sub-heading">{{ __('List out the history of all immunization') }}</h5>
                 </div>
-                <div class="w-2/3 space-y-2">
+                <div class="w-full lg:w-2/3 space-y-2">
                     <div class="flex items-center space-x-4">
-                        <div class="grid grid-cols-3 gap-4">
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
                             <div>
                                 <input class="block form-input w-full max-w-xs" id="immunization_history[]['date']" type="text" name="immunization_history" placeholder="Date" />
                             </div>
@@ -699,17 +693,17 @@
                         </div>
     
                         <button class="focus:outline-none focus:shadow-outline rounded-full" title="Add another">
-                            <svg class="w-5 h-5 text-primary-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"></path></svg>
+                            <svg class="w-5 h-5 text-primary-800" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"></path></svg>
                         </button>
                     </div>
                 </div>
             </div>
             <div class="border-t"></div>
             <div class="flex justify-end items-center space-x-4">
-                <button class="btn btn-primary">
+                <button class="btn btn-primary" name="action" value="save-and-edit">
                     Save & Continue Editing
                 </button>
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary" name="action" value="save">
                     Save
                 </button>
             </div>
