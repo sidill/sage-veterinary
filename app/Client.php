@@ -33,4 +33,20 @@ class Client extends Model
     {
         return $this->hasMany(Patient::class);
     }
+
+    public static function create(array $attributes = [])
+    {
+       return Client::query()->firstOrCreate([
+            'reference' => $attributes['client']['reference']
+        ], $attributes['client']);
+    }
+
+    protected static function booted()
+    {
+        self::deleting(function ($model) {
+            $model->patients->each(function ($patient) {
+                $patient->delete();
+            });
+        });
+    }
 }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\RecordStoreRequest;
 use App\Http\Requests\RecordUpdateRequest;
+use App\Client;
+use App\Patient;
 use App\Record;
 use Illuminate\Http\Request;
 
@@ -26,7 +28,18 @@ class RecordController extends Controller
      */
     public function create(Request $request)
     {
-        return view('record.create');
+        $patient = null;
+        $client = null;
+
+        if ($patientReference = $request->query('patient')) {
+            $patient = Patient::query()->where('reference', $patientReference)->first();
+        }
+
+        if ($clientReference = $request->query('client')) {
+            $client = Client::query()->where('reference', $clientReference)->first();
+        }
+
+        return view('record.create', compact('patient', 'client'));
     }
 
     /**

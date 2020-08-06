@@ -24,17 +24,18 @@ class PatientUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'reference' => 'required|string',
-            'name' => 'required|string',
-            'species' => 'required|string',
-            'type' => 'required|string',
-            'breed' => 'required|string',
-            'color' => 'required|string',
-            'markings' => 'string',
-            'microchip' => 'string',
-            'tattoo' => 'string',
-            'date_of_birth' => 'required|string',
-            'medical_history' => 'required|json',
+            'patient.reference' => 'required|string',
+            'patient.name' => 'required|string',
+            'patient.species' => 'required|string|in:dog,cat,none',
+            'patient.type' => 'required|string|in:spayed,neutered,none',
+            'patient.breed' => 'required|string',
+            'patient.color' => 'required|string',
+            'patient.markings' => 'nullable|string',
+            'patient.microchip' => 'nullable|string',
+            'patient.tattoo' => 'nullable|string',
+            'patient.date_of_birth' => 'nullable|date',
+            'patient.medical_history' => 'nullable|array',
+            'action' => 'required',
         ];
     }
 }

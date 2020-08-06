@@ -35,11 +35,15 @@ class ClientController extends Controller
      */
     public function store(ClientStoreRequest $request)
     {
-        $client = Client::create($request->all());
+        $client = Client::create($validated = $request->validated());
 
         $request->session()->flash('client.id', $client->id);
 
-        return redirect()->route('client.index');
+        if ($validated['action'] == 'save-and-edit') {
+            return redirect()->route('client.edit', $client->id);
+        }
+
+        return redirect()->route('client.show', $client->id);
     }
 
     /**
@@ -69,11 +73,16 @@ class ClientController extends Controller
      */
     public function update(ClientUpdateRequest $request, Client $client)
     {
-        $client->update($request->validated());
+        $validated = $request->validated();
+        $client->update($validated['client']);
 
         $request->session()->flash('client.id', $client->id);
 
-        return redirect()->route('client.index');
+        if ($validated['action'] == 'save-and-edit') {
+            return redirect()->route('client.edit', $client->id);
+        }
+
+        return redirect()->route('client.show', $client->id);
     }
 
     /**

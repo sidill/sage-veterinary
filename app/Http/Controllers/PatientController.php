@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PatientStoreRequest;
 use App\Http\Requests\PatientUpdateRequest;
+use App\Client;
 use App\Patient;
 use Illuminate\Http\Request;
 
@@ -26,7 +27,13 @@ class PatientController extends Controller
      */
     public function create(Request $request)
     {
-        return view('patient.create');
+        $client = null;
+        
+        if ($clientReference = $request->query('client')) {
+            $client = Client::query()->where('reference', $clientReference)->first();
+        }
+        
+        return view('patient.create', compact('client'));
     }
 
     /**
@@ -35,11 +42,15 @@ class PatientController extends Controller
      */
     public function store(PatientStoreRequest $request)
     {
-        $patient = Patient::create($request->all());
+        $patient = Patient::create($validated = $request->validated());
 
         $request->session()->flash('patient.id', $patient->id);
 
-        return redirect()->route('patient.index');
+        if ($validated['action'] == 'save-and-edit') {
+            return redirect()->route('patient.edit', $patient->id);
+        }
+
+        return redirect()->route('patient.show', $patient->id);
     }
 
     /**
@@ -69,11 +80,16 @@ class PatientController extends Controller
      */
     public function update(PatientUpdateRequest $request, Patient $patient)
     {
-        $patient->update($request->validated());
+        $validated = $request->validated();
+        $patient->update($validated['patient']);
 
         $request->session()->flash('patient.id', $patient->id);
 
-        return redirect()->route('patient.index');
+        if ($validated['action'] == 'save-and-edit') {
+            return redirect()->route('patient.edit', $patient->id);
+        }
+
+        return redirect()->route('patient.show', $patient->id);
     }
 
     /**

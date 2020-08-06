@@ -24,11 +24,12 @@ class ClientStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'reference' => 'required|string',
-            'name' => 'required|string',
-            'address' => 'required|string',
-            'phone' => 'required|string',
-            'email' => 'required|email',
+            'client.reference' => 'required|string',
+            'client.name' => 'required|string',
+            'client.address' => 'required|string',
+            'client.phone' => 'required|starts_with:0|digits:10',
+            'client.email' => 'required|email',
+            'action' => 'required',
         ];
     }
 }

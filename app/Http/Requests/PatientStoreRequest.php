@@ -24,17 +24,23 @@ class PatientStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'reference' => 'required|string',
-            'name' => 'required|string',
-            'species' => 'required|string',
-            'type' => 'required|string',
-            'breed' => 'required|string',
-            'color' => 'required|string',
-            'markings' => 'string',
-            'microchip' => 'string',
-            'tattoo' => 'string',
-            'date_of_birth' => 'required|string',
-            'medical_history' => 'required|json',
+            'client.reference' => 'required|string',
+            'client.name' => 'required|string',
+            'client.address' => 'required|string',
+            'client.phone' => 'required|starts_with:0|digits:10',
+            'client.email' => 'required|email',
+            'patient.reference' => 'required|string',
+            'patient.name' => 'required|string',
+            'patient.species' => 'required|string|in:dog,cat,none',
+            'patient.type' => 'required|string|in:spayed,neutered,none',
+            'patient.breed' => 'required|string',
+            'patient.color' => 'required|string',
+            'patient.markings' => 'nullable|string',
+            'patient.microchip' => 'nullable|string',
+            'patient.tattoo' => 'nullable|string',
+            'patient.date_of_birth' => 'nullable|date',
+            'patient.medical_history' => 'nullable|array',
+            'action' => 'required',
         ];
     }
 }
