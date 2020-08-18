@@ -36,6 +36,8 @@ class Patient extends Model
         'medical_history' => 'array',
     ];
 
+    protected $perPage = 5;
+
     public function client()
     {
         return $this->belongsTo(Client::class);

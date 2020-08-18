@@ -16,7 +16,7 @@ class PatientController extends Controller
      */
     public function index(Request $request)
     {
-        $patients = Patient::query()->paginate();
+        $patients = Patient::query()->paginate(null, ['*'], 'patients_per_page');
 
         return view('patient.index', compact('patients'));
     }
@@ -60,7 +60,9 @@ class PatientController extends Controller
      */
     public function show(Request $request, Patient $patient)
     {
-        return view('patient.show', compact('patient'));
+        $records = $patient->records()->paginate(null, ['*'], 'records_per_page');
+
+        return view('patient.show', compact('patient', 'records'));
     }
 
     /**

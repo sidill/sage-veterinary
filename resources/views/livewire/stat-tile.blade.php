@@ -27,7 +27,7 @@
             @endif
         </div>
         <div>
-            <a href="#" class="flex items-center space-x-2 bg-gray-100 hover:bg-gray-200 py-1 px-2 rounded-full">
+            <a href="{{ route($name . '.index') }}" class="flex items-center space-x-2 bg-gray-100 hover:bg-gray-200 py-1 px-2 rounded-full">
                 <span class="text-xs font-medium text-gray-700">More</span>
                 <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="text-gray-600 w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
             </a>

@@ -39,6 +39,8 @@ class Record extends Model
         'immunization_history' => 'array',
     ];
 
+    protected $perPage = 5;
+
     public function patient()
     {
         return $this->belongsTo(Patient::class);

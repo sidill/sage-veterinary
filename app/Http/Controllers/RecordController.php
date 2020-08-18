@@ -17,7 +17,7 @@ class RecordController extends Controller
      */
     public function index(Request $request)
     {
-        $records = Record::query()->paginate();
+        $records = Record::query()->paginate(null, ['*'], 'records_per_page');
 
         return view('record.index', compact('records'));
     }

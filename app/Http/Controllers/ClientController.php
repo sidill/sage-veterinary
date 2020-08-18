@@ -15,7 +15,7 @@ class ClientController extends Controller
      */
     public function index(Request $request)
     {
-        $clients = Client::query()->paginate();
+        $clients = Client::query()->paginate(null, ['*'], 'clients_per_page');
 
         return view('client.index', compact('clients'));
     }
@@ -53,7 +53,13 @@ class ClientController extends Controller
      */
     public function show(Request $request, Client $client)
     {
-        return view('client.show', compact('client'));
+        $patients = $client->patients()->paginate(null, ['*'], 'patients_per_page');
+        $records = $client->records()->paginate(null, ['*'], 'records_per_page');
+
+        $patients->appends(['records_per_page' => $records->currentPage()]);
+        $records->appends(['patients_per_page' => $patients->currentPage()]);
+
+        return view('client.show', compact('client', 'patients', 'records'));
     }
 
     /**

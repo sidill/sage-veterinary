@@ -28,6 +28,7 @@ class Client extends Model
         'id' => 'integer',
     ];
 
+    protected $perPage = 5;
 
     public function patients()
     {
