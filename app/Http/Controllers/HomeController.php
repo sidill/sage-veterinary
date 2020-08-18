@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Client;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,6 +14,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $clients = Client::query()
+            ->where('created_at', '>=', now()->startOfWeek()->toDateString())
+            ->get()
+            ->count();
+        $previousClients = Client::query()
+            ->where('created_at', '>=', now()->subWeek()->startOfWeek()->toDateString())
+            ->where('created_at', '<', now()->startOfWeek()->toDateString())
+            ->get()
+            ->count();
+        return view('home', compact('clients', 'previousClients'));
     }
 }

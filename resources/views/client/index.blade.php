@@ -9,9 +9,8 @@
     <div class="shadow rounded-lg w-full">
         <div class="flex bg-gray-100 text-gray-600 rounded-t-lg text-xs uppercase tracking-wider">
             <div class="w-1/12 px-6 py-3">ID</div>
-            <div class="w-2/12 px-6 py-3">Name</div>
-            <div class="w-2/12 px-6 py-3">Email</div>
-            <div class="w-2/12 px-6 py-3">Address</div>
+            <div class="w-3/12 px-6 py-3">Name</div>
+            <div class="w-3/12 px-6 py-3">Address</div>
             <div class="w-2/12 px-6 py-3">Created</div>
             <div class="w-2/12 px-6 py-3">Updated</div>
             <div class="w-1/12 px-6 py-3"></div>
@@ -19,15 +18,12 @@
         @foreach($clients as $client)
         <div class="flex items-center bg-white text-gray-800 @if($loop->last) rounded-b-lg @endif text-sm">
             <div class="w-1/12 px-6 py-3">{{ $client->id }}</div>
-            <div class="w-2/12 px-6 py-3">
+            <div class="w-3/12 px-6 py-3">
                 <div>{{ $client->name }}</div>
                 <div class="text-gray-500">{{ $client->reference }}</div>
             </div>
-            <div class="w-2/12 px-6 py-3">
+            <div class="w-3/12 px-6 py-3">
                 <div>{{ $client->email }}</div>
-            </div>
-            <div class="w-2/12 px-6 py-3">
-                <div>{{ $client->address }}</div>
                 <div class="text-gray-500">{{ $client->phone }}</div>
             </div>
             <div class="w-2/12 px-6 py-3">{{ $client->created_at->format('D j M, Y') }}</div>
@@ -73,5 +69,11 @@
         </div>
         @endforeach
     </div>
+
+    <div class="mt-5">
+        {{ $clients->links() }}
+    </div>
+    @else
+
     @endif
 @endsection

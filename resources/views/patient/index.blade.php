@@ -9,9 +9,8 @@
     <div class="shadow rounded-lg w-full">
         <div class="flex bg-gray-100 text-gray-600 rounded-t-lg text-xs uppercase tracking-wider">
             <div class="w-1/12 px-6 py-3">ID</div>
-            <div class="w-2/12 px-6 py-3">Client</div>
-            <div class="w-2/12 px-6 py-3">Name</div>
-            <div class="w-2/12 px-6 py-3">Characteristics</div>
+            <div class="w-3/12 px-6 py-3">Client</div>
+            <div class="w-3/12 px-6 py-3">Name</div>
             <div class="w-2/12 px-6 py-3">Created</div>
             <div class="w-2/12 px-6 py-3">Updated</div>
             <div class="w-1/12 px-6 py-3"></div>
@@ -19,17 +18,13 @@
         @foreach($patients as $patient)
         <div class="flex items-center bg-white text-gray-800 @if($loop->last) rounded-b-lg @endif text-sm">
             <div class="w-1/12 px-6 py-3">{{ $patient->id }}</div>
-            <div class="w-2/12 px-6 py-3">
+            <div class="w-3/12 px-6 py-3">
                 <div>{{ $patient->client->name }}</div>
                 <div class="text-gray-500">{{ $patient->client->reference }}</div>
             </div>
-            <div class="w-2/12 px-6 py-3">
+            <div class="w-3/12 px-6 py-3">
                 <div>{{ $patient->name }}</div>
                 <div class="text-gray-500">{{ $patient->reference }}</div>
-            </div>
-            <div class="w-2/12 px-6 py-3">
-                <div>{{ $patient->breed }}</div>
-                <div class="text-gray-500">{{ $patient->color }}</div>
             </div>
             <div class="w-2/12 px-6 py-3">{{ $patient->created_at->format('D j M, Y') }}</div>
             <div class="w-2/12 px-6 py-3">{{ $patient->updated_at->diffForHumans() }}</div>
@@ -70,5 +65,11 @@
         </div>
         @endforeach
     </div>
+
+    <div class="mt-5">
+        {{ $patients->links() }}
+    </div>
+    @else
+
     @endif
 @endsection

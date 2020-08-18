@@ -16,7 +16,7 @@ class PatientController extends Controller
      */
     public function index(Request $request)
     {
-        $patients = Patient::all();
+        $patients = Patient::query()->paginate();
 
         return view('patient.index', compact('patients'));
     }
@@ -32,7 +32,7 @@ class PatientController extends Controller
         if ($clientReference = $request->query('client')) {
             $client = Client::query()->where('reference', $clientReference)->first();
         }
-        
+
         return view('patient.create', compact('client'));
     }
 

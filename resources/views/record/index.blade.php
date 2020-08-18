@@ -51,7 +51,7 @@
                             <div>Delete</div>
                         </a>
 
-                        <form id="delete-record-{{$record->id }}" action="{{ route('record.destroy', $record->id) }}" method="POST" class="hidden">
+                        <form id="delete-record-{{ $record->id }}" action="{{ route('record.destroy', $record->id) }}" method="POST" class="hidden">
                             @csrf
                             @method('delete')
                         </form>
@@ -61,5 +61,11 @@
         </div>
         @endforeach
     </div>
+
+    <div class="mt-5">
+        {{ $records->links() }}
+    </div>
+    @else
+
     @endif
 @endsection

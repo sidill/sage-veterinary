@@ -34,6 +34,11 @@ class Client extends Model
         return $this->hasMany(Patient::class);
     }
 
+    public function records()
+    {
+        return $this->hasManyThrough(Record::class, Patient::class);
+    }
+
     public static function create(array $attributes = [])
     {
        return Client::query()->firstOrCreate([

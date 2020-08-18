@@ -15,7 +15,7 @@ class ClientController extends Controller
      */
     public function index(Request $request)
     {
-        $clients = Client::all();
+        $clients = Client::query()->paginate();
 
         return view('client.index', compact('clients'));
     }
