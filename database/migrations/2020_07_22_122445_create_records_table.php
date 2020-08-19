@@ -23,9 +23,10 @@ class CreateRecordsTable extends Migration
             $table->longText('recommendations')->nullable();
             $table->json('immunization_history')->nullable();
             $table->string('signature')->nullable();
-            $table->string('date')->nullable();
+            $table->date('date')->nullable();
             $table->bigInteger('patient_id');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -3,9 +3,16 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Client extends Model
 {
+    use SoftDeletes;
+    use LogsActivity;
+
+    protected static $logFillable = true;
+    
     /**
      * The attributes that are mass assignable.
      *
@@ -54,5 +61,10 @@ class Client extends Model
                 $patient->delete();
             });
         });
+    }
+
+    public function getDescriptionAttribute()
+    {
+        return "Client {$this->name}";
     }
 }

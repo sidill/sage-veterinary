@@ -181,7 +181,7 @@
         </div>
     </div>
 
-    <x-table name="record" :items="$records" :parameters="['patient' => $patient->reference]" />
+    <x-table name="record" :items="$records" :parameters="['patient' => $patient->reference]" description="List of records for this patient" />
 </div>
   
 @endsection

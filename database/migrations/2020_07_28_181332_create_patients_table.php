@@ -16,18 +16,19 @@ class CreatePatientsTable extends Migration
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
             $table->string('reference')->index();
-            $table->string('name');
-            $table->string('species');
-            $table->string('type');
-            $table->string('breed');
-            $table->string('color');
+            $table->string('name')->nullable();
+            $table->string('species')->nullable();
+            $table->string('type')->nullable();
+            $table->string('breed')->nullable();
+            $table->string('color')->nullable();
             $table->string('markings')->nullable();
             $table->string('microchip')->nullable();
             $table->string('tattoo')->nullable();
-            $table->string('date_of_birth');
-            $table->json('medical_history');
+            $table->string('date_of_birth')->nullable();
+            $table->json('medical_history')->nullable();
             $table->bigInteger('client_id');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

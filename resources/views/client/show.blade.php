@@ -68,9 +68,9 @@
         </div>
     </div>
 
-    <x-table name="patient" :items="$patients" :parameters="['client' => $client->reference]" />
+    <x-table name="patient" :items="$patients" :parameters="['client' => $client->reference]" description="List of patients for this client" />
 
-    <x-table name="record" :items="$records" :parameters="['client' => $client->reference]" />
+    <x-table name="record" :items="$records" :parameters="['client' => $client->reference]" description="List of records for this client's patients" />
 </div>
   
 @endsection

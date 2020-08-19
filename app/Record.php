@@ -2,11 +2,18 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Record extends Model
 {
+    use SoftDeletes;
+    use LogsActivity;
+
+    protected static $logFillable = true;
+    
     /**
      * The attributes that are mass assignable.
      *
@@ -59,5 +66,10 @@ class Record extends Model
         return $patient->records()->create(Arr::except($attributes, [
             'client', 'patient', 'action'
         ]));
+    }
+
+    public function getDescriptionAttribute()
+    {
+        return "Record for Patient {$this->patient->name}";
     }
 }

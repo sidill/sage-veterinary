@@ -11,5 +11,11 @@
     <livewire:stat-tile name="patient" />
 
     <livewire:stat-tile name="record" />
+
+</div>
+
+<div class="mt-4">
+    <x-recent-activity :activities="$activities" />
 </div>
 @endsection
+
