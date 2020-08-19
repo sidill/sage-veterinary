@@ -74,7 +74,7 @@
                     </div>
                     <div>
                         <label class="form-label block mb-2" for="patient[species]">Species</label>
-                        <div class="grid grid-cols-2 gap-4 max-w-md text-gray-800">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-md text-gray-800">
                             <div>
                                 <div>
                                     <label class="inline-flex items-center">

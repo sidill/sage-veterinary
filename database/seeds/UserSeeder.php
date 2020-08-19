@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -13,14 +14,12 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->updateOrInsert([
+        User::query()->updateOrCreate([
             'email' => 'isaacsai030@gmail.com'
         ], [
             'name' => 'Isaac Adzah Sai',
             'email' => 'isaacsai030@gmail.com',
             'password' => Hash::make('superadmin'),
-            'created_at' => now(),
-            'updated_at' => now(),
         ]);
     }
 }

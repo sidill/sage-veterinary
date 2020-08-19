@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use Spatie\Activitylog\Models\Activity;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,14 +21,20 @@ Route::get('/', function () {
 Auth::routes(['register' => false, 'verify' => true]);
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('home', 'HomeController')->name('home');
+    Route::get('home', 'HomeController')
+        ->name('home');
 
-    Route::get('profile', 'ProfileController')->name('profile');
+    Route::get('profile', 'ProfileController')
+        ->middleware('verified')
+        ->name('profile');
+
+    Route::post('password/change', 'Auth\ChangePasswordController')
+        ->name('password.change');
     
-    Route::resource('record', 'RecordController')->middleware('verified');
+    Route::resource('record', 'RecordController');
     
-    Route::resource('client', 'ClientController')->middleware('verified');
+    Route::resource('client', 'ClientController');
     
-    Route::resource('patient', 'PatientController')->middleware('verified');
+    Route::resource('patient', 'PatientController');
 });
 
