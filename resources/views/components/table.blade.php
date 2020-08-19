@@ -14,7 +14,6 @@
     </div>
     
     @if(!$items->isEmpty())
-        {{--TODO: List Menu options on small screens--}}
         <div class="overflow-x-auto lg:overflow-x-visible">
             <table class="w-full bg-white @if(!$items->hasPages()) rounded-b-lg @endif shadow">
                 <thead>

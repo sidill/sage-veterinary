@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('header')
-    <x-sub-header title="Clients" label="All Clients" :route="route('client.index')" />
+    <x-sub-header title="Clients" />
 @endsection
 
 @section('content')

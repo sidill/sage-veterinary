@@ -57,7 +57,7 @@
                     </button>
     
                     <div x-show="show" x-on:click.away="show = false" aria-labelledby="navbarDropdown" class="absolute right-0 top-0 mt-6 w-56 bg-white border border-gray-300 rounded-md shadow-md divide-y">
-                        <a class="block p-4 text-center hover:bg-gray-100" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a class="block p-4 text-center hover:bg-gray-100" href="{{ route('profile') }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             <svg class="block mx-auto w-16 h-16 text-gray-400" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             <span class="text-gray-600 text-sm">{{ Auth::user()->name }}</span>
                             <span class="text-gray-500 text-xs">{{ Auth::user()->email }}</span>

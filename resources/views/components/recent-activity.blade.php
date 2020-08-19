@@ -15,7 +15,7 @@
             </div>
             <div>
                 <div class="text-gray-700 text-sm">
-                    <span class="font-medium">{{ $activity->causer->name }}</span>
+                    <span class="font-medium">{{ $activity->causer->name ?? 'System' }}</span>
                     {{ $activity->description }}
                     <span class="font-medium">{{ $activity->subject->description }}</span>
                 </div>

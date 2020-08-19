@@ -7,18 +7,14 @@ use Illuminate\View\Component;
 class SubHeader extends Component
 {
     public $title;
-    public $label;
-    public $route;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($title, $label = null, $route = null)
+    public function __construct($title)
     {
         $this->title = $title;
-        $this->label = $label;
-        $this->route = $route;
     }
 
     /**

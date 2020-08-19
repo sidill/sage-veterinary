@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('header')
-    <x-sub-header title="Patients" label="All Patients" :route="route('patient.index')" />
+    <x-sub-header title="Patients" />
 @endsection
 
 @section('content')

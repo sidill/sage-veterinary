@@ -19,15 +19,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes(['register' => false]);
+Auth::routes(['register' => false, 'verify' => true]);
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('home', 'HomeController@index')->name('home');
+    Route::get('home', 'HomeController')->name('home');
+
+    Route::get('profile', 'ProfileController')->name('profile');
     
-    Route::resource('record', 'RecordController');
+    Route::resource('record', 'RecordController')->middleware('verified');
     
-    Route::resource('client', 'ClientController');
+    Route::resource('client', 'ClientController')->middleware('verified');
     
-    Route::resource('patient', 'PatientController');
+    Route::resource('patient', 'PatientController')->middleware('verified');
 });
 
