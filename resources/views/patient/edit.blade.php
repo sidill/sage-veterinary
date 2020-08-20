@@ -38,7 +38,7 @@
                     </div>
                     <div>
                         <label class="form-label" for="client['phone']">Client Phone</label>
-                        <input class="block form-input @error('client.phone') is-invalid @enderror w-full max-w-xs" id="client['phone']" type="text" name="client[phone]" value="{{ $patient->client->phone }}" readonly />
+                        <input class="block form-input @error('client.phone') is-invalid @enderror w-full max-w-xs" id="client['phone']" type="text" name="client[phone]" value="{{ $patient->client->phone }}" readonly autocomplete="tel-national" />
                         @error('client.phone')
                             <x-error :message="$message" />
                         @enderror

@@ -8,9 +8,11 @@
                 {{ $description ?? 'List of ' . Str::plural($name) }}
             </p>
         </div>
+        @if(!$items->isEmpty())
         <a href="{{ route($name .'.create', $parameters) }}" class="btn btn-primary">
             New {{ ucfirst($name) }}
         </a>
+        @endif
     </div>
     
     @if(!$items->isEmpty())
@@ -84,11 +86,27 @@
         </div>
     
         @if($items->hasPages())
-        <div class="bg-gray-100 py-5 px-4 sm:px-6 rounded-b-lg shadow">
-            {{ $items->links() }}
+            <div class="bg-gray-100 py-5 px-4 sm:px-6 rounded-b-lg shadow">
+                {{ $items->links() }}
+            </div>
+        @endif
+
+    @else
+        <div class="bg-gray-100 rounded-b-lg shadow py-5">
+            <div class="flex flex-col items-center space-y-5">
+                <img class="w-64 h-64" src="{{ asset('img/blank.svg') }}" alt="Blank Page" >
+            
+                <div class="text-center text-gray-700 text-sm">
+                    <p>{{ __('Oops, Looks like there is no data yet.') }}</p>
+                    <p>{{ __('New Entries will appear here.') }}</p>
+                </div>
+            
+                <div>
+                    <a href="{{ route($name .'.create', $parameters) }}" class="block btn btn-primary">
+                        Add First {{ ucfirst($name) }}
+                    </a>
+                </div>
+            </div>
         </div>
-        @endif
-        @else
-    
-        @endif
+    @endif
 </div>

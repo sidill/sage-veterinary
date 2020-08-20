@@ -9,21 +9,21 @@
             <div class="w-full lg:w-2/3 space-y-2">
                 <div>
                     <label class="form-label" for="name">Name</label>
-                    <input wire:model="name" class="block form-input @error('name') is-invalid @enderror w-full max-w-md" id="name" type="text" name="name" />
+                    <input wire:model="name" class="block form-input @error('name') is-invalid @enderror w-full max-w-md" id="name" type="text" name="name" autocomplete="name" />
                     @error('name')
                         <x-error :message="$message" />
                     @enderror
                 </div>
                 <div>
                     <label class="form-label" for="email">Email</label>
-                    <input wire:model="email" class="block form-input @error('email') is-invalid @enderror w-full max-w-sm" id="email" type="text" name="email" />
+                    <input wire:model="email" class="block form-input @error('email') is-invalid @enderror w-full max-w-sm" id="email" type="text" name="email" autocomplete="email" />
                     @error('email')
                         <x-error :message="$message" />
                     @enderror
                 </div>
                 <div>
                     <label class="form-label" for="phone">Phone</label>
-                    <input wire:model="phone" class="block form-input @error('phone') is-invalid @enderror w-full max-w-xs" id="phone" type="text" name="phone" />
+                    <input wire:model="phone" class="block form-input @error('phone') is-invalid @enderror w-full max-w-xs" id="phone" type="text" name="phone" autocomplete="tel-national" />
                     @error('phone')
                         <x-error :message="$message" />
                     @enderror

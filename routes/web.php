@@ -25,7 +25,7 @@ Route::group(['middleware' => ['auth', '2fa']], function () {
         ->name('home');
 
     Route::get('profile', 'ProfileController')
-        ->middleware(['verified', 'password.confirm'])
+        ->middleware('verified')
         ->name('profile');
 
     Route::post('password/change', 'Auth\ChangePasswordController')
