@@ -53,7 +53,7 @@ return [
     /*
      * One Time Password View.
      */
-    'view' => 'auth.one-time-password',
+    'view' => 'auth.passwords.one-time',
 
     /*
      * One Time Password error message.
