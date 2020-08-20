@@ -26,7 +26,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <livewire:styles />
 </head>
-<body class="font-poppins bg-gray-200">
+<body class="font-poppins">
     <div id="app">
         <x-header />
         <div>

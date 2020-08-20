@@ -56,14 +56,20 @@
                         <svg class="w-5 h-5 text-gray-900" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
                     </button>
     
-                    <div x-show="show" x-on:click.away="show = false" aria-labelledby="navbarDropdown" class="absolute right-0 top-0 mt-6 w-56 bg-white border border-gray-300 rounded-md shadow-md divide-y">
-                        <a class="block p-4 text-center hover:bg-gray-100" href="{{ route('profile') }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    <div x-show="show" x-on:click.away="show = false" aria-labelledby="navbarDropdown" class="absolute right-0 -mr-2 top-0 mt-6 w-56 bg-white border border-gray-300 rounded-md shadow-md divide-y">
+                        <a class="block p-4 text-center hover:bg-gray-100 rounded-t-md" href="{{ route('profile') }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             <svg class="block mx-auto w-16 h-16 text-gray-400" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             <span class="text-gray-600 text-sm">{{ Auth::user()->name }}</span>
                             <span class="text-gray-500 text-xs">{{ Auth::user()->email }}</span>
                         </a>
+                        <a class="block text-primary-600 hover:bg-gray-100 px-4 py-2" href="{{ route('security') }}">
+                            <span class="flex items-center space-x-2">
+                                <svg viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg>
+                                <span>{{ __('Account Security') }}</span>
+                            </span>
+                        </a>
                         <div>
-                            <a class="block text-primary-600 hover:bg-gray-100 px-4 py-2" href="{{ route('logout') }}"
+                            <a class="block text-primary-600 hover:bg-gray-100 rounded-b-md px-4 py-2" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
                                 <span class="flex items-center space-x-2">

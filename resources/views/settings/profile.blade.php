@@ -8,6 +8,5 @@
     <div class="space-y-4">
         <livewire:contact-form />
 
-        <x-password-form />
     </div>
 @endsection

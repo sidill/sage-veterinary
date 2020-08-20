@@ -20,21 +20,34 @@ Route::get('/', function () {
 
 Auth::routes(['register' => false, 'verify' => true]);
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => ['auth', '2fa']], function () {
     Route::get('home', 'HomeController')
         ->name('home');
 
     Route::get('profile', 'ProfileController')
-        ->middleware('verified')
+        ->middleware(['verified', 'password.confirm'])
         ->name('profile');
 
     Route::post('password/change', 'Auth\ChangePasswordController')
         ->name('password.change');
-    
-    Route::resource('record', 'RecordController');
-    
-    Route::resource('client', 'ClientController');
-    
-    Route::resource('patient', 'PatientController');
-});
 
+    Route::resource('record', 'RecordController');
+
+    Route::resource('client', 'ClientController');
+
+    Route::resource('patient', 'PatientController');
+
+    Route::get('security', 'Auth\PasswordSecurityController@showForm')
+        ->name('security')
+        ->middleware('password.confirm');
+    Route::post('generate2faSecret', 'Auth\PasswordSecurityController@generate2faSecret')
+        ->name('generate2faSecret');
+    Route::post('2fa', 'Auth\PasswordSecurityController@enable2fa')
+        ->name('enable2fa');
+    Route::post('disable2fa', 'Auth\PasswordSecurityController@disable2fa')
+        ->name('disable2fa');
+
+    Route::post('2faVerify', function () {
+        return redirect(url()->previous());
+    })->name('2faVerify');
+});

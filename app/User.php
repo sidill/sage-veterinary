@@ -52,4 +52,9 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return "{$this->name}";
     }
+
+    public function passwordSecurity()
+    {
+        return $this->hasOne(PasswordSecurity::class);
+    }
 }
