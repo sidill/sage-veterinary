@@ -34,19 +34,19 @@
                     <div>
                         <div>
                             <label class="inline-flex items-center">
-                                <input wire:model="notify_via" type="checkbox" class="form-checkbox w-5 h-5 cursor-pointer" name="notify_via[]" value="database" />
+                                <input wire:model="notify_via" type="checkbox" class="form-checkbox w-5 h-5 cursor-pointer text-gray-700" name="notify_via[]" value="database" />
                                 <span class="ml-2">Dashboard</span>
                             </label>
                         </div>  
                         <div>
                             <label class="inline-flex items-center">
-                                <input wire:model="notify_via" type="checkbox" class="form-checkbox w-5 h-5 cursor-pointer" name="notify_via[]" value="mail" />
+                                <input wire:model="notify_via" type="checkbox" class="form-checkbox w-5 h-5 cursor-pointer text-gray-700" name="notify_via[]" value="mail" />
                                 <span class="ml-2">Mail</span>
                             </label>
                         </div>  
                         <div>
                             <label class="inline-flex items-center">
-                                <input wire:model="notify_via" type="checkbox" class="form-checkbox w-5 h-5 cursor-pointer" name="notify_via[]" value="sms" />
+                                <input wire:model="notify_via" type="checkbox" class="form-checkbox w-5 h-5 cursor-pointer text-gray-700" name="notify_via[]" value="sms" />
                                 <span class="ml-2">SMS</span>
                             </label>
                         </div>

@@ -30,7 +30,7 @@
         <div class="border-t"></div>
         <div class="flex justify-end items-center">
             <button type="submit" class="btn btn-primary">
-                Save
+                Update
             </button>
         </div>
     </div>

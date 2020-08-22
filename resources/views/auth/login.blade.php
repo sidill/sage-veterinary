@@ -40,7 +40,7 @@
     
         <div>
             <label class="inline-flex items-center" for="remember">
-                <input class="form-checkbox cursor-pointer w-5 h-5" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                <input class="form-checkbox cursor-pointer w-5 h-5 text-gray-700" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                 <span class="ml-2 form-label">{{ __('Remember Me') }}</span>
             </label>
         </div>

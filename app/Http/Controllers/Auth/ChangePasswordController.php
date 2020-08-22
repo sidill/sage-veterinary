@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -35,6 +36,8 @@ class ChangePasswordController extends Controller
         $user->update([
             'password' => Hash::make($request->new_password)
         ]);
+
+        Auth::logoutOtherDevices($request->new_password);
 
         return back()->with('status', 'Password Changed');
     }
