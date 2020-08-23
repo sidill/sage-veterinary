@@ -24,6 +24,10 @@
     @apply transition ease-in-out font-semibold py-2 px-5 rounded;
 }
 
+.btn:focus {
+    @apply outline-none shadow-outline;
+}
+
 .btn-primary {
     @apply text-white bg-primary-800;
 }
@@ -33,7 +37,20 @@
 }
 
 .btn-secondary {
-    @apply text-gray-800 border border-gray-800;
+    @apply text-gray-800 border border-gray-400 bg-white;
 }
+
+.btn-secondary:hover {
+    @apply bg-gray-100;
+}
+
+.btn-danger {
+    @apply bg-red-600 text-white;
+}
+
+.btn-danger:hover {
+    @apply bg-red-500;
+}
+
 
 @tailwind utilities;

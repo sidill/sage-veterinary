@@ -22,7 +22,7 @@ class ChangePasswordController extends Controller
         $user = auth()->user();
         $validator = Validator::make($request->all(), [
             'current_password' => ['required', 'string', 'min:8'],
-            'new_password' => ['required', 'different:current_password', 'confirmed'],
+            'new_password' => ['required', 'different:current_password', 'dumbpwd', 'confirmed'],
         ]);
 
         $validator->after(function ($validator) use ($request, $user) {
