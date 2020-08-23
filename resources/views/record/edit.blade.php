@@ -79,19 +79,19 @@
                             <div>
                                 <div>
                                     <label class="inline-flex items-center">
-                                        <input onclick="return false" type="radio" class="form-radio w-5 h-5 cursor-pointer" @if($record->patient->species === 'dog') {{ 'checked' }} @endif name="patient[species]" value="dog" />
+                                        <input onclick="return false" type="radio" class="form-radio w-5 h-5 text-gray-700 cursor-pointer" @if($record->patient->species === 'dog') {{ 'checked' }} @endif name="patient[species]" value="dog" />
                                         <span class="ml-2">Dog</span>
                                     </label>
                                 </div>  
                                 <div>
                                     <label class="inline-flex items-center">
-                                        <input onclick="return false" type="radio" class="form-radio w-5 h-5 cursor-pointer" @if($record->patient->species === 'cat') {{ 'checked' }} @endif name="patient[species]" value="cat" />
+                                        <input onclick="return false" type="radio" class="form-radio w-5 h-5 text-gray-700 cursor-pointer" @if($record->patient->species === 'cat') {{ 'checked' }} @endif name="patient[species]" value="cat" />
                                         <span class="ml-2">Cat</span>
                                     </label>
                                 </div>  
                                 <div>
                                     <label class="inline-flex items-center">
-                                        <input onclick="return false" type="radio" class="form-radio w-5 h-5 cursor-pointer" @if($record->patient->species === 'none') {{ 'checked' }} @endif name="patient[species]" value="none" />
+                                        <input onclick="return false" type="radio" class="form-radio w-5 h-5 text-gray-700 cursor-pointer" @if($record->patient->species === 'none') {{ 'checked' }} @endif name="patient[species]" value="none" />
                                         <span class="ml-2">None</span>
                                     </label>
                                 </div>
@@ -102,13 +102,13 @@
                             <div>
                                 <div>
                                     <label class="inline-flex items-center">
-                                        <input onclick="return false" type="radio" class="form-radio w-5 h-5 cursor-pointer" @if($record->patient->type === 'spayed') {{ 'checked' }} @endif name="patient[type]" value="spayed" />
+                                        <input onclick="return false" type="radio" class="form-radio w-5 h-5 text-gray-700 cursor-pointer" @if($record->patient->type === 'spayed') {{ 'checked' }} @endif name="patient[type]" value="spayed" />
                                         <span class="ml-2">Spayed</span>
                                     </label>
                                 </div>  
                                 <div>
                                     <label class="inline-flex items-center">
-                                        <input onclick="return false" type="radio" class="form-radio w-5 h-5 cursor-pointer" @if($record->patient->type === 'neutered') {{ 'checked' }} @endif name="patient[type]" value="neutered" />
+                                        <input onclick="return false" type="radio" class="form-radio w-5 h-5 text-gray-700 cursor-pointer" @if($record->patient->type === 'neutered') {{ 'checked' }} @endif name="patient[type]" value="neutered" />
                                         <span class="ml-2">Neutered</span>
                                     </label>
                                 </div>  
@@ -680,23 +680,7 @@
                     <h5 class="form-sub-heading">{{ __('List out the history of all immunization') }}</h5>
                 </div>
                 <div class="w-full lg:w-2/3 space-y-2">
-                    <div class="flex items-center space-x-4">
-                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
-                            <div>
-                                <input class="block form-input w-full max-w-xs" id="immunization_history[]['date']" type="text" name="immunization_history" placeholder="Date" />
-                            </div>
-                            <div>
-                                <input class="block form-input w-full max-w-xs" id="immunization_history[]['type']" type="text" name="immunization_history" placeholder="Type" />
-                            </div>
-                            <div>
-                                <input class="block form-input w-full max-w-xs" id="immunization_history[]['next_due']" type="text" name="immunization_history" placeholder="Next Due" />
-                            </div>
-                        </div>
-    
-                        <button class="focus:outline-none focus:shadow-outline rounded-full" title="Add another">
-                            <svg class="w-5 h-5 text-primary-800" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"></path></svg>
-                        </button>
-                    </div>
+                    <livewire:immunization :immunizations="$record->immunization_history" />
                 </div>
             </div>
             <div class="border-t"></div>

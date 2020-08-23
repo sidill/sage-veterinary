@@ -1020,7 +1020,7 @@ video {
   flex-shrink: 0;
   height: 1em;
   width: 1em;
-  color: #4299e1;
+  color: #4a5568;
   background-color: #fff;
   border-color: #e2e8f0;
   border-width: 1px;
@@ -1069,7 +1069,7 @@ video {
   border-radius: 100%;
   height: 1em;
   width: 1em;
-  color: #4299e1;
+  color: #4a5568;
   background-color: #fff;
   border-color: #e2e8f0;
   border-width: 1px;
@@ -1133,6 +1133,16 @@ video {
   --bg-opacity: 1;
   background-color: #4a5568;
   background-color: rgba(74, 85, 104, var(--bg-opacity));
+}
+
+.btn-secondary {
+  --text-opacity: 1;
+  color: #2d3748;
+  color: rgba(45, 55, 72, var(--text-opacity));
+  border-width: 1px;
+  --border-opacity: 1;
+  border-color: #2d3748;
+  border-color: rgba(45, 55, 72, var(--border-opacity));
 }
 
 .space-y-0 > :not(template) ~ :not(template) {

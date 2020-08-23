@@ -14,6 +14,9 @@ module.exports = {
         default: {
           input: {
             
+          },
+          'checkbox, radio': {
+            color: theme('colors.gray.700')
           }
         }
       })
