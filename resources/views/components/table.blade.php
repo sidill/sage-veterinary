@@ -1,5 +1,5 @@
 <div>
-    <div class="flex items-center justify-between px-4 sm:px-6 py-5 bg-white rounded-t-lg shadow-xs">
+    <div class="flex flex-col space-y-5 lg:space-y-0 lg:flex-row lg:items-center lg:justify-between px-4 sm:px-6 py-5 bg-white rounded-t-lg shadow-xs">
         <div>
             <h3 class="text-lg leading-6 font-medium text-gray-900">
                 {{ ucfirst($name) }} List
@@ -9,9 +9,11 @@
             </p>
         </div>
         @if(!$items->isEmpty())
-        <a href="{{ route($name .'.create', $parameters) }}" class="btn btn-primary">
-            New {{ ucfirst($name) }}
-        </a>
+        <div>
+            <a href="{{ route($name .'.create', $parameters) }}" class="btn btn-primary">
+                New {{ ucfirst($name) }}
+            </a>
+        </div>
         @endif
     </div>
     

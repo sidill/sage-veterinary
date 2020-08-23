@@ -8,7 +8,7 @@
 <div class="space-y-5">
     <div class="bg-white shadow overflow-hidden rounded-lg">
         <div class="px-4 py-5 border-b border-gray-200 sm:px-6">
-            <div class="flex items-center justify-between">
+            <div class="flex flex-col space-y-2 lg:space-y-0 lg:flex-row lg:items-center lg:justify-between">
                 <div>
                     <h3 class="text-lg leading-6 font-medium text-gray-900">
                         Patient Information
@@ -131,7 +131,7 @@
 
     <div class="bg-white shadow overflow-hidden rounded-lg">
       <div class="px-4 py-5 border-b border-gray-200 sm:px-6">
-          <div class="flex items-center justify-between">
+          <div class="flex flex-col space-y-2 lg:space-y-0 lg:flex-row lg:items-center lg:justify-between">
               <div>
                   <h3 class="text-lg leading-6 font-medium text-gray-900">
                       Client Information
