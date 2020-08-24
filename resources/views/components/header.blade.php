@@ -3,7 +3,7 @@
         <div class="flex space-x-2 text-gray-600 text-sm">
             <a href="{{ url('/') }}" class="flex items-center space-x-3 text-gray-800 py-2 px-1">
                 <img class="w-10 h-10" src="{{ asset('img/logo.png') }}" />
-                <span class="hidden lg:inline-block text-base font-bold">Sage Veterinary Services</span>
+                <span class="hidden lg:inline-block text-base font-bold">{{ config('app.name') }}</span>
             </a>
             @auth
             <a href="{{ route('home') }}" class="flex items-center space-x-2 py-3 px-2 @if(request()->is('home')) border-b-2 border-primary-700 @endif">
