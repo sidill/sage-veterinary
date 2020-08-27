@@ -27,8 +27,8 @@ class ClientStoreRequest extends FormRequest
             'client.reference' => 'required|string',
             'client.name' => 'required|string',
             'client.address' => 'required|string',
-            'client.phone' => 'required|starts_with:0|digits:10',
-            'client.email' => 'required|email',
+            'client.phone' => 'required|starts_with:0|digits:10|unique:clients,phone',
+            'client.email' => 'required|email|unique:clients,email',
             'action' => 'required',
         ];
     }

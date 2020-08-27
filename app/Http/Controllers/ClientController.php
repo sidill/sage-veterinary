@@ -37,7 +37,9 @@ class ClientController extends Controller
     {
         $client = Client::create($validated = $request->validated());
 
-        $request->session()->flash('client.id', $client->id);
+        session()->flash('status', __('messages.created', [
+            'description' => $client->description
+        ]));
 
         if ($validated['action'] == 'save-and-edit') {
             return redirect()->route('client.edit', $client->id);
@@ -82,7 +84,9 @@ class ClientController extends Controller
         $validated = $request->validated();
         $client->update($validated['client']);
 
-        $request->session()->flash('client.id', $client->id);
+        session()->flash('status', __('messages.updated', [
+            'description' => $client->description
+        ]));
 
         if ($validated['action'] == 'save-and-edit') {
             return redirect()->route('client.edit', $client->id);
@@ -99,6 +103,10 @@ class ClientController extends Controller
     public function destroy(Request $request, Client $client)
     {
         $client->delete();
+
+        session()->flash('status', __('messages.deleted', [
+            'description' => $client->description
+        ]));
 
         return redirect()->route('client.index');
     }

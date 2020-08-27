@@ -7,7 +7,7 @@
 @section('content')
     <form action="{{ route('patient.store') }}" method="POST">
         @csrf
-        <div class="bg-white rounded shadow p-5 space-y-8">
+        <div class="bg-white rounded-lg shadow p-5 space-y-8">
             <div class="flex flex-col lg:flex-row">
                 <div class="w-full mb-8 lg:w-1/3">
                     <h3 class="form-heading">{{ __('Client Information') }}</h3>

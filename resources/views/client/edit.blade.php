@@ -5,10 +5,16 @@
 @endsection
 
 @section('content')
+    @if(session('status'))
+    <x-alert class="mb-2">
+        <p class="text-sm font-medium">{{ session('status') }}</p>
+    </x-alert>
+    @endif
+    
     <form action="{{ route('client.update', $client->id) }}" method="POST">
         @csrf
         @method('PUT')
-        <div class="bg-white rounded shadow p-5 space-y-8">
+        <div class="bg-white rounded-lg shadow p-5 space-y-8">
             <div class="flex flex-col lg:flex-row">
                 <div class="w-full mb-8 lg:w-1/3">
                     <h3 class="form-heading">{{ __('Client Information') }}</h3>
@@ -58,7 +64,7 @@
                     Save & Continue Editing
                 </button>
                 <button type="submit" class="btn btn-primary" name="action" value="save">
-                    Save
+                    Save Changes
                 </button>
             </div>
         </div>

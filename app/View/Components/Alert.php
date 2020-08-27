@@ -6,15 +6,15 @@ use Illuminate\View\Component;
 
 class Alert extends Component
 {
-    public $type;
+    public $dismissable;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($type)
+    public function __construct($dismissable = true)
     {
-        $this->type = $type;
+        $this->dismissable = $dismissable;
     }
 
     /**

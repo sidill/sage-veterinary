@@ -44,7 +44,9 @@ class PatientController extends Controller
     {
         $patient = Patient::create($validated = $request->validated());
 
-        $request->session()->flash('patient.id', $patient->id);
+        session()->flash('status', __('messages.created', [
+            'description' => $patient->description
+        ]));
 
         if ($validated['action'] == 'save-and-edit') {
             return redirect()->route('patient.edit', $patient->id);
@@ -85,7 +87,9 @@ class PatientController extends Controller
         $validated = $request->validated();
         $patient->update($validated['patient']);
 
-        $request->session()->flash('patient.id', $patient->id);
+        session()->flash('status', __('messages.updated', [
+            'description' => $patient->description
+        ]));
 
         if ($validated['action'] == 'save-and-edit') {
             return redirect()->route('patient.edit', $patient->id);
@@ -102,6 +106,10 @@ class PatientController extends Controller
     public function destroy(Request $request, Patient $patient)
     {
         $patient->delete();
+
+        session()->flash('status', __('messages.deleted', [
+            'description' => $patient->description
+        ]));
 
         return redirect()->route('patient.index');
     }

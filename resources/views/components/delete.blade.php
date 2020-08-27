@@ -38,7 +38,7 @@
                 Delete {{ $title }}
               </h3>
               <div class="mt-2">
-                <p class="text-sm leading-5 text-gray-500">
+                <p class="text-sm leading-5 text-gray-600">
                   Are you sure you want to delete {{ $name }}? All belonging data will be permanently removed. This action cannot be undone.
                 </p>
               </div>

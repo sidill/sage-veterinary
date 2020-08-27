@@ -4,10 +4,10 @@
 <x-auth-card title="Verify Your Email Address">
     <div class="space-y-2">
         <div>
-            @if (session('resent'))
-                <div class="alert alert-success" role="alert">
-                    {{ __('A fresh verification link has been sent to your email address.') }}
-                </div>
+            @if(session('resent'))
+                <x-alert>
+                    <p class="text-sm font-medium">{{ __('A fresh verification link has been sent to your email address.') }}</p>
+                </x-alert>
             @endif
         </div>
     

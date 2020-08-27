@@ -64,8 +64,7 @@
                 </div>
                 @elseif($user->passwordSecurity->google2fa_enable)
                 <div class="space-y-2">
-                    <x-alert type='success'>
-                        <span></span>
+                    <x-alert :dismissable="false">
                         <p class="text-sm font-medium">2FA is Currently <strong>Enabled</strong> for your account.</p>
                     </x-alert>
 

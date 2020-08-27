@@ -5,6 +5,12 @@
 @endsection
 
 @section('content')
+  @if(session('status'))
+  <x-alert class="mb-2">
+      <p class="text-sm font-medium">{{ session('status') }}</p>
+  </x-alert>
+  @endif
+  
 <div class="space-y-5">
     <div class="bg-white shadow overflow-hidden rounded-lg">
         <div class="px-4 py-5 border-b border-gray-200 sm:px-6">

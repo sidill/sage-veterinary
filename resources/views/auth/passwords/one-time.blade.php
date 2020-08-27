@@ -6,15 +6,15 @@
         @csrf
 
         <div>
-            @if (session('error'))
-                <div class="alert alert-danger">
-                    {{ session('error') }}
-                </div>
+            @if(session('error'))
+                <x-alert>
+                    <p class="text-sm font-medium">{{ session('error') }}</p>
+                </x-alert>
             @endif
-            @if (session('success'))
-                <div class="alert alert-success">
-                    {{ session('success') }}
-                </div>
+            @if(session('success'))
+                <x-alert>
+                    <p class="text-sm font-medium">{{ session('success') }}</p>
+                </x-alert>
             @endif
         </div>
 

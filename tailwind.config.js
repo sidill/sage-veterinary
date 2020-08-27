@@ -13,7 +13,6 @@ module.exports = {
       customForms: theme => ({
         default: {
           input: {
-            
           },
           'checkbox, radio': {
             color: theme('colors.gray.700')

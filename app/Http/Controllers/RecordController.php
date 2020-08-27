@@ -50,7 +50,9 @@ class RecordController extends Controller
     {
         $record = Record::create($validated = $request->validated());
 
-        session()->flash('record.id', $record->id);
+        session()->flash('status', __('messages.created', [
+            'description' => $record->description
+        ]));
 
         if ($validated['action'] == 'save-and-edit') {
             return redirect()->route('record.edit', $record->id);
@@ -88,7 +90,9 @@ class RecordController extends Controller
     {
         $record->update($validated = $request->validated());
 
-        $request->session()->flash('record.id', $record->id);
+        session()->flash('status', __('messages.updated', [
+            'description' => $record->description
+        ]));
 
         if ($validated['action'] == 'save-and-edit') {
             return redirect()->route('record.edit', $record->id);
@@ -105,6 +109,10 @@ class RecordController extends Controller
     public function destroy(Request $request, Record $record)
     {
         $record->delete();
+
+        session()->flash('status', __('messages.deleted', [
+            'description' => $record->description
+        ]));
 
         return redirect()->route('record.index');
     }

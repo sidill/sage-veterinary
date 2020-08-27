@@ -2,10 +2,10 @@
 
 @section('content')
 <x-auth-card title="Reset Password">
-    @if (session('status'))
-        <div class="alert alert-success" role="alert">
-            {{ session('status') }}
-        </div>
+    @if(session('status'))
+    <x-alert>
+        <p class="text-sm font-medium">{{ session('status') }}</p>
+    </x-alert>
     @endif
 
     <form class="space-y-4" method="POST" action="{{ route('password.email') }}">
