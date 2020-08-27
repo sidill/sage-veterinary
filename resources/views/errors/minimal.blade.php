@@ -1,19 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="bg-white rounded-lg p-24 shadow text-center font-poppins text-gray-800">
+<div class="bg-white rounded-lg p-24 shadow text-center font-poppins text-gray-800 space-y-4">
     <div class="text-4xl">
         Oops...
     </div>
-    <div class="text-2xl">
-        @yield('code')
+
+    <div class="flex items-center justify-center text-lg">
+        <div class="border-r-2 border-gray-600 pr-3">
+            @yield('code')
+        </div>
+    
+        <div class="pl-3">
+            @yield('message')
+        </div>
     </div>
 
-    <div class="text-lg">
-        @yield('message')
-    </div>
-
-    <div class="pt-5">
+    <div>
         <a class="btn btn-primary inline-block" href="{{ url('/') }}">
             Go Home
         </a>
